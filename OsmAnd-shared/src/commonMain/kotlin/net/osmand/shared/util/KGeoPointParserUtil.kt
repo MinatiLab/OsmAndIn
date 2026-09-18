@@ -4,6 +4,9 @@ import net.osmand.shared.data.KLatLon
 
 object KGeoPointParserUtil {
 
+    /** Web map of OpenStreetMap India, see net.osmand.map.OsmIndiaWebMap. */
+    private const val OSM_INDIA_HOST = "openstreetmap.in"
+
     private fun getQueryParameter(param: String, uri: KGeoPointParserURI): String? {
         val query = uri.query
         var value: String? = null
@@ -176,7 +179,10 @@ object KGeoPointParserUtil {
             Regex("(?:loc:)?([N|S]?[+-]?\\d+(?:\\.\\d+)?),([E|W]?[+-]?\\d+(?:\\.\\d+)?)")
 
         try {
-            if (host == "osm.org" || host.endsWith("openstreetmap.org")) {
+            if (host == "osm.org" || host.endsWith("openstreetmap.org")
+                || host == OSM_INDIA_HOST || host.endsWith(".$OSM_INDIA_HOST")) {
+                // openstreetmap.in uses the very same #zoom/lat/lon fragment, e.g.
+                // https://www.openstreetmap.in/indic-map/#5.1/23.300/82.000
                 return parseOsmUri(uri, path, fragment)
             } else if (host.startsWith("map.baidu.")) { // .com and .cn both work
                 return parseBaiduUri(params)

@@ -36,13 +36,11 @@ import net.osmand.osm.PoiType;
 import net.osmand.search.SearchUICore.SearchResultMatcher;
 import net.osmand.search.core.SearchPhrase.NameStringMatcher;
 import net.osmand.search.core.SearchPhrase.SearchPhraseDataType;
-import net.osmand.shared.util.PlatformUtil;
 import net.osmand.util.*;
 import net.osmand.util.LocationParser.ParsedOpenLocationCode;
 
 import java.io.File;
 import java.io.IOException;
-import java.net.URI;
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
 import java.util.*;
@@ -2178,12 +2176,6 @@ public class SearchCoreFactory {
 			GeoParsedPoint pnt = null;
 			for (String text : lines.split("\n")) {
 				pnt = GeoPointParserUtil.parse(text);
-				if (pnt == null && GeoPointParserUtil.isGooGlUrl(text)) {
-					String resolvedUrl = resolveRedirectUrl(text);
-					if (resolvedUrl != null) {
-						pnt = GeoPointParserUtil.parse(resolvedUrl);
-					}
-				}
 				if (pnt != null) {
 					break;
 				}
@@ -2205,14 +2197,6 @@ public class SearchCoreFactory {
 				return true;
 			}
 			return false;
-		}
-
-		private String resolveRedirectUrl(String url) {
-			URI uri = GeoPointParserUtil.createUri(url);
-			if (uri != null && internetConnectionAvailable.getAsBoolean()) {
-				return PlatformUtil.INSTANCE.getNetworkAPI().resolveRedirectUrl(uri.toString());
-			}
-			return null;
 		}
 
 		@Override

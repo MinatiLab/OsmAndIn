@@ -2,7 +2,7 @@
 <resources>
     <!-- Part of build.gradle -->
 
-    <string name="app_store_name">OsmAnd Maps</string>
+    <string name="app_store_name">OsmAndIn - Osmand Maps for India</string>
     
     <!-- Not translatable -->
 	<string name="shared_string_beta">Beta</string>

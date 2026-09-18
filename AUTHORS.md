@@ -1,3 +1,8 @@
+### OsmAndIn
+
+OsmAndIn - Osmand Maps for India is a fork of OsmAnd. Contributors to the fork:
+ - Aryan Sinha \<techyminati@outlook.com\> - OpenStreetMap India web map integration and India-only link handling
+
 ### Credits to all major contributors / developers:
 Major contributors / developers listed [here](https://github.com/osmandapp/web/blob/main/main/src/components/content/About.mdx#L5).
 

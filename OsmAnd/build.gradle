@@ -120,32 +120,32 @@ android {
 		nightlyFree {
 			dimension "version"
 			applicationId "net.osmand.dev"
-			resValue "string", "app_name", "OsmAnd Nightly"
+			resValue "string", "app_name", "OsmAndIn Nightly"
 			resValue "string", "app_edition", System.getenv("APP_EDITION") ? System.getenv("APP_EDITION") : ""
 			// resConfig "en"
 		}
 		androidFull {
 			dimension "version"
 			applicationId "net.osmand.plus"
-			resValue "string", "app_name", "OsmAnd~"
+			resValue "string", "app_name", "OsmAndIn~"
 			resValue "string", "app_edition", System.getenv("APP_EDITION") ? System.getenv("APP_EDITION") : ""
 		}
 		gplayFree {
 			dimension "version"
 			applicationId "net.osmand"
-			resValue "string", "app_name", "OsmAnd"
+			resValue "string", "app_name", "OsmAndIn"
 			resValue "string", "app_edition", System.getenv("APP_EDITION") ? System.getenv("APP_EDITION") : ""
 		}
 		gplayFull {
 			dimension "version"
 			applicationId "net.osmand.plus"
-			resValue "string", "app_name", "OsmAnd+"
+			resValue "string", "app_name", "OsmAndIn+"
 			resValue "string", "app_edition", System.getenv("APP_EDITION") ? System.getenv("APP_EDITION") : ""
 		}
 		huawei {
 			dimension "version"
 			applicationId "net.osmand.huawei"
-			resValue "string", "app_name", "OsmAnd"
+			resValue "string", "app_name", "OsmAndIn"
 			resValue "string", "app_edition", ""
 		}
 

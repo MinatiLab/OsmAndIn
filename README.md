@@ -1,3 +1,31 @@
+OsmAndIn - Osmand Maps for India
+------------
+**OsmAndIn** is a fork of [OsmAnd](https://github.com/osmandapp/OsmAnd) built for India.
+
+The default openstreetmap.org rendering draws the borders of India as they are on the ground,
+which does not match the boundaries published by the Survey of India. The OpenStreetMap India
+community renders the very same OSM data with the boundaries drawn as required - the
+[Indic map](https://www.openstreetmap.in/indic-map/) - so OsmAndIn opens locations there
+instead of openstreetmap.org:
+
+    https://www.openstreetmap.in/indic-map/#5.1/23.300/82.000
+
+### What differs from upstream OsmAnd
+
+ - **Web map** - "Share location" and the coordinates panel link to the OpenStreetMap India
+   Indic map rather than to openstreetmap.org. Links to openstreetmap.org objects
+   (node / way / relation / note / user), the editing API and OAuth sign-in are unchanged,
+   since openstreetmap.in does not serve them.
+ - **Incoming links** - `https://www.openstreetmap.in/indic-map/#zoom/lat/lon` links shared
+   from a browser or another app open in OsmAndIn.
+ - **India-only link handling** - OsmAndIn ships for India only, so links of map services that
+   do not cover it are no longer handled: openstreetmap.org, Google Maps, Apple Maps, Yandex,
+   Baidu, Amap, QQ, openstreetmap.de and ge0.me. `geo:` links, `google.navigation:` navigation
+   hand-off and osmand.net links keep working as before.
+ - **Naming** - the app is named OsmAndIn.
+
+Everything below describes upstream OsmAnd and applies to this fork as well.
+
 OsmAnd (OSM Automated Navigation Directions)
 ------------
 This project aims at providing comfortable map viewing and navigation (routing) application for mobile devices. Particular stress lies with complete offline features (via pre-loaded offline map data) or economic internet usage.

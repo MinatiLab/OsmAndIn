@@ -9,6 +9,7 @@ import androidx.annotation.Nullable;
 
 import net.osmand.LocationConvert;
 import net.osmand.PlatformUtil;
+import net.osmand.map.OsmIndiaWebMap;
 import net.osmand.plus.OsmandApplication;
 import net.osmand.plus.R;
 import net.osmand.plus.activities.MapActivity;
@@ -194,7 +195,7 @@ public class PointDescription {
 		if (!Algorithms.isEmpty(osmAndUrl)) {
 			rows.add(FormattedCoordinate.plain(osmAndUrl));
 		}
-		String osmUrl = getOsmEditingUrl(ctx, lat, lon);
+		String osmUrl = getOsmIndiaMapUrl(ctx, lat, lon);
 		if (!Algorithms.isEmpty(osmUrl)) {
 			rows.add(FormattedCoordinate.plain(osmUrl));
 		}
@@ -221,7 +222,7 @@ public class PointDescription {
 	}
 
 	@Nullable
-	public static String getOsmEditingUrl(@NonNull MapActivity ctx, double lat, double lon) {
+	public static String getOsmIndiaMapUrl(@NonNull MapActivity ctx, double lat, double lon) {
 		if (!PluginsHelper.isEnabled(OsmEditingPlugin.class)) {
 			return null;
 		}
@@ -230,7 +231,7 @@ public class PointDescription {
 			return null;
 		}
 		String zoom = parts[0], lat0 = parts[1], lon0 = parts[2];
-		return "https://www.openstreetmap.org/?mlat=" + lat0 + "&mlon=" + lon0 + "#map=" + zoom + "/" + lat0 + "/" + lon0;
+		return OsmIndiaWebMap.getLocationUrl(zoom, lat0, lon0);
 	}
 
 	@Nullable
